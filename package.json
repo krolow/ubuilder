@@ -1,0 +1,30 @@
+{
+  "name": "ubuilder",
+  "description": "Lib to help write DSL to create URL's",
+  "keywords": ["dsl", "url", "builder"],
+  "version": "0.0.1",
+  "author": "Vinícius Krolow <krolow@gmail.com>",
+  "contributors": [
+  ],
+  "dependencies": {
+    "coffee-script": "1.8.0",
+    "request": "2.45.0",
+    "lodash": "2.4.1"
+  },
+  "devDependencies": {
+    "mocha": "1.21.5",
+    "should": "4.1.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/krolow/ubuilder"
+  },
+  "bugs": {
+    "url": "https://github.com/krolow/ubuilderissues"
+  },
+  "engines": [ "node >= 0.10.0" ],
+  "main": "./index",
+  "scripts": {
+    "test": "mocha --compilers coffee:coffee-script/register --reporter spec"
+  }
+}
