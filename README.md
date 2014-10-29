@@ -5,13 +5,30 @@ Simple lib to help you build paths for some DSL code:
 
 e.g:
 
-```coffescript
+```coffee
 ubuilder = require 'ubuilder'
 
-ubuilder.add({path: 'projects'})
+ubuilder.add({path: 'project', id: 1})
   .add({path: 'tasks', 'rules': [{need: 'projects'}]})
-  .build() #/projects/tasks.json
+  .build() #/project/1/tasks.json
 ```
+
+**This will allow you to create codes like:**
+
+```coffee
+teamwork.project(1).tasks().get (err, response, body) ->
+  console.log body
+
+class Teamwork
+  project: (id) ->
+    ubuilder.add({path: 'project', id: 1});
+  tasks: ->
+    ubuilder.add({path: 'tasks', rules: [{need: 'project'}]})
+    
+  get: (callback) ->
+    request(ubuilder.build(), callback)
+```
+
 
 ## License
 
